@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenidos a Villa Bubu</title>
+    <style>
+        /* Aquí le damos el toque de "naturaleza" con colores verdes y tierra */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f9f4;
+            /* Un verde muy clarito de fondo */
+            color: #2c3e50;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .contenedor {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid #4CAF50;
+            /* Línea verde arriba para decorar */
+        }
+
+        h1 {
+            color: #2e7d32;
+            margin-bottom: 5px;
+        }
+
+        p {
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .seccion {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: #e9f5e9;
+            border-radius: 10px;
+        }
+
+        /* Estilos para los botones */
+        .boton {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 10px;
+            border: none;
+            cursor: pointer;
+            width: 80%;
+        }
+
+        .boton:hover {
+            background-color: #388E3C;
+        }
+
+        .boton-whatsapp {
+            background-color: #25D366;
+        }
+
+        .boton-whatsapp:hover {
+            background-color: #1DA851;
+        }
+
+        .qr-placeholder {
+            width: 150px;
+            height: 150px;
+            background-color: #ccc;
+            margin: 10px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            border-radius: 10px;
+        }
+
+        .normas {
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .instagram-links a {
+            color: #C13584;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="contenedor">
+        <h1>🌿 Villa Bubu 🌿</h1>
+        <p>Un pedacito de Canarias y Albacete... controlado estrictamente por la Manoli 🐈.</p>
+
+        <div class="seccion">
+            <h3>📶 El Wi-Fi</h3>
+            <p>Para sobrevivir en esta casa es importante: no pisar a Ceniza, ser juzgado por la Manuela, aguantar a
+                Calima y dar de comer a Rumba.</p>
+
+            <img src="qr.png" alt="Código QR del Wi-Fi"
+                style="width: 150px; height: 150px; border-radius: 10px; margin: 10px auto; display: block; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+
+            <p><strong>Red:</strong> MOVISTAR-WIFI6-9E28</p>
+            <p><strong>Clave:</strong> <span id="clave-wifi">4V3WfWVHjTA9H4Ngaa7j</span></p>
+            <button class="boton" onclick="copiarClave()">Copiar Contraseña</button>
+            <p id="mensaje-copiado" style="color: green; font-size: 12px; display: none;">¡Clave copiada!</p>
+        </div>
+
+        <div class="seccion">
+            <h3>🍻 Servicio de barra</h3>
+            <p>¿Más cerveza? Molesta a Ale que hace rato que no se mueve.</p>
+            <a href="https://wa.me/34681164273?text=Hola,%20soy%20vuestro%20invitado.%20Se%20requiere%20asistencia%20inmediata%20y%20una%20cerveza%20fr%C3%ADa%20en%20el%20sal%C3%B3n."
+                class="boton boton-whatsapp" target="_blank">Tocar la campanilla</a>
+        </div>
+
+        <div class="seccion">
+            <h3>📸 ¡Paparazzis bienvenidos!</h3>
+            <p>Si le haces fotos a las fieras (o a los dueños), ¡etiquétanos!</p>
+            <div class="instagram-links">
+                <a href="https://instagram.com/alejanndro63" target="_blank">Ale</a> |
+                <a href="https://instagram.com/danihpe" target="_blank">Dani</a>
+            </div>
+        </div>
+
+        <div class="seccion normas">
+            <h3 style="text-align: center;">📜 Normas de la casa</h3>
+            <ul>
+                <li><strong>Vigilancia:</strong> Estáis bajo la atenta mirada de Rumba del Pilar y Calima de las
+                    Angustias. Se aceptan sobornos en forma de premios.</li>
+                <li><strong>Sobre los dueños:</strong> También se aceptan sobornos, pero a estos con cerveza o vino.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function copiarClave() {
+            // Obtenemos el texto de la clave
+            var clave = document.getElementById("clave-wifi").innerText;
+
+            // Lo copiamos al portapapeles
+            navigator.clipboard.writeText(clave).then(function () {
+                // Mostramos el mensajito de "¡Clave copiada!"
+                var mensaje = document.getElementById("mensaje-copiado");
+                mensaje.style.display = "block";
+
+                // Lo ocultamos después de 3 segundos
+                setTimeout(function () {
+                    mensaje.style.display = "none";
+                }, 3000);
+            });
+        }
+    </script>
+
+</body>
+
+</html>
